@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.util.HashMap;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -20,7 +22,7 @@ import javafx.scene.layout.VBox;
 public class QuoteFormController implements Initializable {
 
     @FXML
-    private TableView materialMenu;
+    private TableView<TableRow> materialMenu;
 
     /**
      * Initializes the controller class.
@@ -35,20 +37,15 @@ public class QuoteFormController implements Initializable {
         FormModal modal = new FormModal();
         HashMap<String, String> values = modal.display();
         
-        if (!values.isEmpty()) {
-            MaterialRow row = new MaterialRow(values);
-            //materialMenu.getItems().add(new TableRow("a", "b", "c", "d"));
-        }
+        //if (!values.isEmpty()) {
+            ObservableList<TableRow> data = materialMenu.getItems();
+            data.add(new TableRow(
+                    values.get("name"),
+                    values.get("unit"),
+                    values.get("pricePerUnit"),
+                    values.get("quantity")
+            ));
+        //}
     }
     
-    class MaterialRow extends HBox {
-        public MaterialRow(HashMap<String, String> values) {
-            Label name = new Label(values.get("name"));
-            Label unit = new Label(values.get("unit"));
-            Label pricePerUnit = new Label(values.get("pricePerUnit"));
-            Label quantity = new Label(values.get("quantity"));
-            
-            this.getChildren().addAll(name, unit, pricePerUnit, quantity);
-        }
-    }
 }

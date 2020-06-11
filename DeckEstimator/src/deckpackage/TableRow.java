@@ -12,10 +12,10 @@ import javafx.beans.property.SimpleStringProperty;
  * @author 19tpe
  */
 public class TableRow {
-    private SimpleStringProperty materialName = new SimpleStringProperty("");
-    private SimpleStringProperty materialUnit = new SimpleStringProperty("");
-    private SimpleStringProperty materialPPU = new SimpleStringProperty("");
-    private SimpleStringProperty materialQuantity = new SimpleStringProperty("");
+    private final SimpleStringProperty materialName = new SimpleStringProperty("");
+    private final SimpleStringProperty materialUnit = new SimpleStringProperty("");
+    private final SimpleStringProperty materialPPU = new SimpleStringProperty("");
+    private final SimpleStringProperty materialQuantity = new SimpleStringProperty("");
     
     /**
      *

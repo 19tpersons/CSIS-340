@@ -13,6 +13,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import deckpackage.*?> 
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteFormController">
     <stylesheets>
@@ -64,12 +67,20 @@
                           <content>
                             <AnchorPane prefHeight="353.0" prefWidth="500.0">
                                  <children>
-                                    <TableView id="materialMenu" editable="true" prefHeight="253.33333333333334" prefWidth="249.33333333333334" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="materialMenu" editable="true" prefHeight="253.33333333333334" prefWidth="249.33333333333334" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="Name" />
-                                          <TableColumn prefWidth="75.0" text="Unit" />
-                                        <TableColumn prefWidth="75.0" text="PricePerUnit" />
-                                          <TableColumn prefWidth="75.0" text="Quantity" />
+                                        <TableColumn prefWidth="75.0" text="Name">
+                                            <cellValueFactory><PropertyValueFactory property="materialName" /></cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="Unit" >
+                                            <cellValueFactory><PropertyValueFactory property="materialUnit" /></cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="PricePerUnit" >
+                                            <cellValueFactory><PropertyValueFactory property="materialPPU" /></cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="Quantity" >
+                                            <cellValueFactory><PropertyValueFactory property="materialQuantity" /></cellValueFactory>
+                                        </TableColumn>
                                       </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
