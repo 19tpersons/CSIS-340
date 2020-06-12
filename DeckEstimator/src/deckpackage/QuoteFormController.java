@@ -1,5 +1,9 @@
 package deckpackage;
 
+import java.beans.XMLEncoder;
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,8 +28,8 @@ public class QuoteFormController implements Initializable {
     @FXML private TextField textEmail;
     @FXML private TextField textHeight;
     @FXML private TextField textBreadth;
-    @FXML private TextField textWidth;
-    @FXML private MenuButton dropdownWoodtype;
+    @FXML private TextField textLength;
+    @FXML private MenuButton dropdownWoodType;
 
     /**
      * Initializes the controller class.
@@ -57,10 +61,19 @@ public class QuoteFormController implements Initializable {
                 textName.getText(),
                 textPhone.getText(),
                 textEmail.getText(),
-                dropdownWoodtype.getText(),
+                dropdownWoodType.getText(),
                 Double.parseDouble(textHeight.getText()),
                 Double.parseDouble(textBreadth.getText()),
-                Double.parseDouble(textWidth.getText())
+                Double.parseDouble(textLength.getText())
         );
+
+        XMLEncoder encoder; // q has to be a bean class
+        try{
+            encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(q.getName() + ".xml")));
+            encoder.writeObject(q);
+            encoder.close();
+        }catch(FileNotFoundException fileNotFound){
+            System.err.println("Error writing to file");
+        }
     }
 }
