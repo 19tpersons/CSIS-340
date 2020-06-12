@@ -6,13 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.util.HashMap;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.layout.HBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.VBox;
-
 
 /**
  * FXML Controller class
@@ -21,8 +18,14 @@ import javafx.scene.layout.VBox;
  */
 public class QuoteFormController implements Initializable {
 
-    @FXML
-    private TableView<TableRow> materialMenu;
+    @FXML private TableView<TableRow> materialMenu;
+    @FXML private TextField textName;
+    @FXML private TextField textPhone;
+    @FXML private TextField textEmail;
+    @FXML private TextField textHeight;
+    @FXML private TextField textBreadth;
+    @FXML private TextField textWidth;
+    @FXML private MenuButton dropdownWoodtype;
 
     /**
      * Initializes the controller class.
@@ -50,6 +53,14 @@ public class QuoteFormController implements Initializable {
 
     @FXML
     private void submit(ActionEvent event) {
-
+        Quote q = new Quote(
+                textName.getText(),
+                textPhone.getText(),
+                textEmail.getText(),
+                dropdownWoodtype.getText(),
+                Double.parseDouble(textHeight.getText()),
+                Double.parseDouble(textBreadth.getText()),
+                Double.parseDouble(textWidth.getText())
+        );
     }
 }
