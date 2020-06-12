@@ -24,4 +24,32 @@ public class Quote {
         this.breadth = breadth;
         this.width = width;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getWoodType() {
+        return woodType;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getBreadth() {
+        return breadth;
+    }
+
+    public double getWidth() {
+        return width;
+    }
 }
