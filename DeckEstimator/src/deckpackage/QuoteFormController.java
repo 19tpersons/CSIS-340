@@ -76,4 +76,11 @@ public class QuoteFormController implements Initializable {
             System.err.println("Error writing to file");
         }
     }
+
+    @FXML
+    private void addLabor(ActionEvent event) {
+    	FormModal modal = new FormModal();
+        HashMap<String, String> values = modal.display();
+        
+    }
 }
