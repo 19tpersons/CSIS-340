@@ -9,13 +9,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.control.cell.*?> 
-<?import javafx.collections.*?> 
-<?import deckpackage.*?> 
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteFormController">
     <stylesheets>
@@ -72,13 +70,13 @@
                                         <TableColumn prefWidth="75.0" text="Name">
                                             <cellValueFactory><PropertyValueFactory property="materialName" /></cellValueFactory>
                                         </TableColumn>
-                                        <TableColumn prefWidth="75.0" text="Unit" >
+                                        <TableColumn prefWidth="75.0" text="Unit">
                                             <cellValueFactory><PropertyValueFactory property="materialUnit" /></cellValueFactory>
                                         </TableColumn>
-                                        <TableColumn prefWidth="75.0" text="PricePerUnit" >
+                                        <TableColumn prefWidth="75.0" text="PricePerUnit">
                                             <cellValueFactory><PropertyValueFactory property="materialPPU" /></cellValueFactory>
                                         </TableColumn>
-                                        <TableColumn prefWidth="75.0" text="Quantity" >
+                                        <TableColumn prefWidth="75.0" text="Quantity">
                                             <cellValueFactory><PropertyValueFactory property="materialQuantity" /></cellValueFactory>
                                         </TableColumn>
                                       </columns>
@@ -89,6 +87,7 @@
                                  </children></AnchorPane>
                           </content>
                         </ScrollPane>
+                        <Button fx:id="submitButton" layoutX="18.0" layoutY="301.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
                      </children>
                   </AnchorPane>
               </content>

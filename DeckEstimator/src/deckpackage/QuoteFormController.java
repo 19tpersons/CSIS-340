@@ -47,5 +47,9 @@ public class QuoteFormController implements Initializable {
             ));
         //}
     }
-    
+
+    @FXML
+    private void submit(ActionEvent event) {
+
+    }
 }
