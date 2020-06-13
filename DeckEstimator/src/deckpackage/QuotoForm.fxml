@@ -20,12 +20,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
-<<<<<<< HEAD
 <?import javafx.scene.control.cell.*?>
 <?import javafx.collections.*?>
 <?import deckpackage.*?>
-=======
->>>>>>> e804ae50510c9a05e6a2638b390a2363a479b48c
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteFormController">
     <stylesheets>
