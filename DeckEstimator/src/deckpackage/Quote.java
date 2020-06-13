@@ -1,5 +1,9 @@
 package deckpackage;
 
+/**
+ *
+ * @author Ethan
+ */
 public class Quote {
 
     private String name;
