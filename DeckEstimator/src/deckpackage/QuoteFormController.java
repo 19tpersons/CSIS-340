@@ -50,8 +50,8 @@ public class QuoteFormController implements Initializable {
     @FXML
     private void addLabor (ActionEvent event) 
     {
-    	FormModal modal = new FormModal();
-        HashMap<String, String> values = modal.display();
+    	LaborModel modal = new LaborModel();
+    	HashMap<String, String> values = modal.display();
         
     }
     
