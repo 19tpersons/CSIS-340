@@ -19,7 +19,7 @@ import java.util.HashMap;
  *
  * @author Rachel
  */
-public class LaborModel {
+public class LaborModal {
     private HashMap<String, String> values = new HashMap<String, String>();
     
     public HashMap<String, String> display() {
