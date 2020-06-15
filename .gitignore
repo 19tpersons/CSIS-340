@@ -2,3 +2,7 @@
 /DeckEstimator/build/
 .idea
 out
+/bin/
+.classpath
+.project
+build.fxbuild
