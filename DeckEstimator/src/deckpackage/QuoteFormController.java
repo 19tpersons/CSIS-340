@@ -38,23 +38,21 @@ public class QuoteFormController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+
+    }
 
     @FXML
     private void addMaterial(ActionEvent event) {
         FormModal modal = new FormModal();
         HashMap<String, String> values = modal.display();
         
-        //if (!values.isEmpty()) {
-            ObservableList<TableRow> data = materialMenu.getItems();
-            data.add(new TableRow(
-                    values.get("name"),
-                    values.get("unit"),
-                    values.get("pricePerUnit"),
-                    values.get("quantity")
-            ));
-        //}
+        ObservableList<TableRow> data = materialMenu.getItems();
+        data.add(new TableRow(
+                values.get("name"),
+                values.get("unit"),
+                values.get("pricePerUnit"),
+                values.get("quantity")
+        ));
     }
 
     @FXML
@@ -68,6 +66,7 @@ public class QuoteFormController implements Initializable {
     		+ " " + tableRow.getMaterialQuantity()
     		+ ",";
     	}
+
         Quote q = new Quote(
                 textName.getText(),
                 textPhone.getText(),
@@ -78,7 +77,8 @@ public class QuoteFormController implements Initializable {
                 Double.parseDouble(textLength.getText()),
                 matString,
                 Double.parseDouble(textFieldLaborCost.getText().substring(1))
-         );
+        );
+
         XMLEncoder encoder; // q has to be a bean class
         try{
             Date date = new Date();
@@ -91,9 +91,7 @@ public class QuoteFormController implements Initializable {
     }
 
     @FXML
-
-    private void addLabor (ActionEvent event) 
-    {
+    private void addLabor (ActionEvent event) {
     	LaborModal modal = new LaborModal();
     	HashMap<String, String> values = modal.display();
     	textFieldLaborCost.setText(values.get("laborCost"));

@@ -2,20 +2,13 @@ package deckpackage;
 
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-
-import java.text.DecimalFormat;
 import java.util.HashMap;
-
 
 /**
  *
@@ -39,19 +32,13 @@ public class LaborModal {
         
         Button submit = new Button("Create");
         submit.setOnAction(e -> {
-            //values.put("numberWorkers", workers.getValue());
-            //values.put("hours", hours.getValue());
-            //values.put("pph", pricePerHour.getValue());
-            values.put("laborCost", "$" + String.format("%.2f", Integer.parseInt(workers.getValue()) 
+            values.put("laborCost", "$" + String.format("%.2f", Integer.parseInt(workers.getValue())
             		* Double.parseDouble(hours.getValue()) 
             		* Double.parseDouble(pricePerHour.getValue())));
-            
             window.close();
         });
         
         layout.getChildren().addAll(workers, hours, pricePerHour, submit);
-        
-        
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
@@ -62,7 +49,6 @@ public class LaborModal {
     class FormRow extends HBox {
         private Label name;
         private TextField textField;
-        
         
         public FormRow(String text) {
             name = new Label(text);
