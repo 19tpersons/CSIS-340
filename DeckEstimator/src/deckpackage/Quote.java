@@ -1,5 +1,7 @@
 package deckpackage;
 
+import javafx.collections.ObservableList;
+
 public class Quote {
 
     private String name;
@@ -9,6 +11,7 @@ public class Quote {
     private double height;
     private double breadth;
     private double length;
+    private String matList;
     // there's probably more things that need to be added
 
     public Quote() {
@@ -21,7 +24,7 @@ public class Quote {
         this.length = 0;
     }
 
-    public Quote(String name, String phone, String email, String woodType, double height, double breadth, double length) {
+    public Quote(String name, String phone, String email, String woodType, double height, double breadth, double length, String matList) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -29,6 +32,7 @@ public class Quote {
         this.height = height;
         this.breadth = breadth;
         this.length = length;
+        this.matList = matList;
     }
 
     public String getName() {
@@ -58,6 +62,10 @@ public class Quote {
     public double getWidth() {
         return length;
     }
+    
+    public String getMatList() {
+    	return matList;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -85,5 +93,9 @@ public class Quote {
 
     public void setLength(double length) {
         this.length = length;
+    }
+    
+    public void setMatList(String matList) {
+    	this.matList = matList;
     }
 }
