@@ -31,6 +31,7 @@ public class QuoteFormController implements Initializable {
     @FXML private TextField textBreadth;
     @FXML private TextField textLength;
     @FXML private MenuButton dropdownWoodType;
+    @FXML private TextField textFieldLaborCost;
 
     /**
      * Initializes the controller class.
