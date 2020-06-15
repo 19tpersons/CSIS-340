@@ -37,10 +37,12 @@ public class LaborModal {
         
         Button submit = new Button("Create");
         submit.setOnAction(e -> {
-            values.put("name", workers.getValue());
-            values.put("unit", hours.getValue());
-            values.put("pricePerUnit", pricePerHour.getValue());
-            
+            //values.put("numberWorkers", workers.getValue());
+            //values.put("hours", hours.getValue());
+            //values.put("pph", pricePerHour.getValue());
+            values.put("laborCost", String.valueOf(Integer.parseInt(workers.getValue()) 
+            		* Double.parseDouble(hours.getValue()) 
+            		* Double.parseDouble(pricePerHour.getValue())));
             
             window.close();
         });

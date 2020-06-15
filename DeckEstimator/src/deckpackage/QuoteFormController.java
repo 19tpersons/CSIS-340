@@ -31,7 +31,7 @@ public class QuoteFormController implements Initializable {
     @FXML private TextField textBreadth;
     @FXML private TextField textLength;
     @FXML private MenuButton dropdownWoodType;
-    @FXML private TextField textFieldLaborCost;
+    @FXML public TextField textFieldLaborCost;
 
     /**
      * Initializes the controller class.
@@ -95,7 +95,6 @@ public class QuoteFormController implements Initializable {
     {
     	LaborModal modal = new LaborModal();
     	HashMap<String, String> values = modal.display();
-
-        
+    	textFieldLaborCost.setText("$" + values.get("laborCost"));
     }
 }
