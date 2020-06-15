@@ -58,6 +58,15 @@ public class QuoteFormController implements Initializable {
 
     @FXML
     private void submit(ActionEvent event) {
+    	String matString = "";
+    	for (int i = 0; i < materialMenu.getItems().size(); i++) {
+    		TableRow tableRow = materialMenu.getItems().get(i);
+    		matString = matString + tableRow.getMaterialName() 
+    		+ " " + tableRow.getMaterialUnit() 
+    		+ " " + tableRow.getMaterialPPU() 
+    		+ " " + tableRow.getMaterialQuantity()
+    		+ ",";
+    	}
         Quote q = new Quote(
                 textName.getText(),
                 textPhone.getText(),
@@ -65,9 +74,9 @@ public class QuoteFormController implements Initializable {
                 dropdownWoodType.getText(),
                 Double.parseDouble(textHeight.getText()),
                 Double.parseDouble(textBreadth.getText()),
-                Double.parseDouble(textLength.getText())
-        );
-
+                Double.parseDouble(textLength.getText()),
+                matString
+         );
         XMLEncoder encoder; // q has to be a bean class
         try{
             Date date = new Date();
