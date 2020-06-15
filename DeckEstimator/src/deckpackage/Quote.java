@@ -14,7 +14,7 @@ public class Quote {
     private double breadth;
     private double length;
     private String matList;
-    // there's probably more things that need to be added
+    private double laborCost;
 
     public Quote() {
         this.name = "";
@@ -24,9 +24,11 @@ public class Quote {
         this.height = 0;
         this.breadth = 0;
         this.length = 0;
+        this.matList = "";
+        this.laborCost = 0;
     }
 
-    public Quote(String name, String phone, String email, String woodType, double height, double breadth, double length, String matList) {
+    public Quote(String name, String phone, String email, String woodType, double height, double breadth, double length, String matList, double laborCost) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -35,6 +37,7 @@ public class Quote {
         this.breadth = breadth;
         this.length = length;
         this.matList = matList;
+        this.laborCost = laborCost;
     }
 
     public String getName() {
@@ -69,6 +72,10 @@ public class Quote {
     	return matList;
     }
 
+    public double getLaborCost() {
+        return laborCost;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -99,5 +106,9 @@ public class Quote {
     
     public void setMatList(String matList) {
     	this.matList = matList;
+    }
+
+    public void setLaborCost(double laborCost) {
+        this.laborCost = laborCost;
     }
 }

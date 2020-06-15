@@ -76,7 +76,8 @@ public class QuoteFormController implements Initializable {
                 Double.parseDouble(textHeight.getText()),
                 Double.parseDouble(textBreadth.getText()),
                 Double.parseDouble(textLength.getText()),
-                matString
+                matString,
+                Double.parseDouble(textFieldLaborCost.getText().substring(1))
          );
         XMLEncoder encoder; // q has to be a bean class
         try{
