@@ -95,6 +95,6 @@ public class QuoteFormController implements Initializable {
     {
     	LaborModal modal = new LaborModal();
     	HashMap<String, String> values = modal.display();
-    	textFieldLaborCost.setText("$" + values.get("laborCost"));
+    	textFieldLaborCost.setText(values.get("laborCost"));
     }
 }

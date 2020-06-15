@@ -12,6 +12,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 
@@ -40,7 +42,7 @@ public class LaborModal {
             //values.put("numberWorkers", workers.getValue());
             //values.put("hours", hours.getValue());
             //values.put("pph", pricePerHour.getValue());
-            values.put("laborCost", String.valueOf(Integer.parseInt(workers.getValue()) 
+            values.put("laborCost", "$" + String.format("%.2f", Integer.parseInt(workers.getValue()) 
             		* Double.parseDouble(hours.getValue()) 
             		* Double.parseDouble(pricePerHour.getValue())));
             
