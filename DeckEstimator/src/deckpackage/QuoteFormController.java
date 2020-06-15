@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -69,7 +70,8 @@ public class QuoteFormController implements Initializable {
 
         XMLEncoder encoder; // q has to be a bean class
         try{
-            encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(q.getName() + ".xml")));
+            Date date = new Date();
+            encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(String.valueOf(date.getTime()) + ".xml")));
             encoder.writeObject(q);
             encoder.close();
         }catch(FileNotFoundException fileNotFound){
