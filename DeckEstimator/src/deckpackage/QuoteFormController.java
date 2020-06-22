@@ -4,6 +4,7 @@ import java.beans.XMLEncoder;
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -11,10 +12,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -22,7 +30,6 @@ import javafx.scene.control.TableView;
  * @author 19tpe
  */
 public class QuoteFormController implements Initializable {
-
     @FXML private TableView<TableRow> materialMenu;
     @FXML private TextField textName;
     @FXML private TextField textPhone;
@@ -33,14 +40,33 @@ public class QuoteFormController implements Initializable {
     @FXML private MenuButton dropdownWoodType;
     @FXML public TextField textFieldLaborCost;
 
+    @FXML
+    private Button LaborButton;
+    @FXML
+    private Button submitButton;
+    @FXML
+    private Pane topMenuPane;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {        
+            Pane mainScene = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
+            topMenuPane.getChildren().add(mainScene);
+        } catch (IOException ex) {
+            Logger.getLogger(QuoteFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
-
+    
+    public Parent getScene() throws IOException {
+        Parent quoteForm = FXMLLoader.load(getClass().getResource("QuotoForm.fxml"));        
+        return quoteForm;
+    }
+    
+    
     @FXML
     private void addMaterial(ActionEvent event) {
         FormModal modal = new FormModal();
@@ -96,4 +122,5 @@ public class QuoteFormController implements Initializable {
     	HashMap<String, String> values = modal.display();
     	textFieldLaborCost.setText(values.get("laborCost"));
     }
+    
 }

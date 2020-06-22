@@ -11,14 +11,17 @@ import javafx.stage.Stage;
  * @author 19tpe
  */
 public class Estimator extends Application {
+    private MainSceneController root;
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("QuotoForm.fxml"));
-        Scene scene = new Scene(root, 900, 500);
+        Parent quoteIndex = FXMLLoader.load(getClass().getResource("QuoteIndex.fxml")); 
+        Scene scene = new Scene(quoteIndex, 900, 500);
+        root = new MainSceneController();
+        
         stage.setTitle("Deck Estimator");
         stage.setResizable(false);
-        stage.setScene(scene); //when we are at the point where we need to change the page we are on, you will use this method.
+        stage.setScene(scene); 
         stage.show();
     }
 
