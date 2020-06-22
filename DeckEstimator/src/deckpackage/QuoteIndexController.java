@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 
 /**
@@ -26,6 +27,8 @@ public class QuoteIndexController implements Initializable {
 
     @FXML
     private Pane topMenuPane;
+    private TableView quoteTableView;
+
     /**
      * Initializes the controller class.
      */
