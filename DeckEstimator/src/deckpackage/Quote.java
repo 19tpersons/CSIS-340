@@ -1,5 +1,7 @@
 package deckpackage;
 
+import java.util.Date;
+
 /**
  *
  * @author Ethan
@@ -15,7 +17,9 @@ public class Quote {
     private double length;
     private String matList;
     private double laborCost;
+
     private String status;
+    private String date;
 
     public Quote() {
         this.name = "";
@@ -27,6 +31,9 @@ public class Quote {
         this.length = 0;
         this.matList = "";
         this.laborCost = 0;
+
+        this.status = "";
+        this.date = "";
     }
 
     public Quote(String name, String phone, String email, String woodType, double height, double breadth, double length, String matList, double laborCost) {
@@ -40,7 +47,10 @@ public class Quote {
         this.matList = matList;
         this.laborCost = laborCost;
 
+        Date date = new Date();
+
         this.status = "idk man"; // default status
+        this.date = String.valueOf(date.getTime());
     }
 
     public String getName() {
@@ -83,6 +93,10 @@ public class Quote {
         return this.status;
     }
 
+    public String getDate() {
+        return this.date;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -121,5 +135,9 @@ public class Quote {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
