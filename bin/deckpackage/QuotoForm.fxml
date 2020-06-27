@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteFormController">
     <stylesheets>
@@ -22,20 +21,7 @@
    <children>
       <VBox layoutX="300.0" layoutY="163.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane prefHeight="79.0" prefWidth="600.0">
-               <children>
-                  <Button layoutX="687.0" layoutY="19.0" mnemonicParsing="false" text="Views" />
-                  <Button layoutX="610.0" layoutY="19.0" mnemonicParsing="false" text="Quotes" />
-                  <Button layoutX="751.0" layoutY="19.0" mnemonicParsing="false" text="Calculator" />
-                  <Button layoutX="833.0" layoutY="19.0" mnemonicParsing="false" text="Emails" />
-                  <Line endX="137.0" layoutX="748.0" layoutY="56.0" startX="-147.83334350585938" startY="1.0" />
-                  <Line endX="82.66665649414062" endY="-24.5" layoutX="595.0" layoutY="83.0" startX="82.66665649414062" startY="-61.66667175292969" />
-                  <Line endX="82.66665649414062" endY="-24.5" layoutX="659.0" layoutY="83.0" startX="82.66665649414062" startY="-61.66667175292969" />
-                  <Line endX="82.66665649414062" endY="-24.5" layoutX="742.0" layoutY="81.0" startX="82.66665649414062" startY="-61.66667175292969" />
-                  <Line endX="82.66665649414062" endY="-24.5" layoutX="517.0" layoutY="81.0" startX="82.66665649414062" startY="-61.66667175292969" />
-                  <Label layoutX="33.0" layoutY="18.0" text="Quote Calculator" />
-               </children>
-            </Pane>
+            <Pane fx:id="topMenuPane" prefHeight="79.0" prefWidth="600.0" />
             <ScrollPane prefHeight="423.0" prefWidth="900.0">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="888.0">

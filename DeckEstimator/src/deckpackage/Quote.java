@@ -15,6 +15,7 @@ public class Quote {
     private double length;
     private String matList;
     private double laborCost;
+    private String status;
 
     public Quote() {
         this.name = "";
@@ -38,6 +39,8 @@ public class Quote {
         this.length = length;
         this.matList = matList;
         this.laborCost = laborCost;
+
+        this.status = "idk man"; // default status
     }
 
     public String getName() {
@@ -76,6 +79,10 @@ public class Quote {
         return laborCost;
     }
 
+    public String getStatus() {
+        return this.status;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -110,5 +117,9 @@ public class Quote {
 
     public void setLaborCost(double laborCost) {
         this.laborCost = laborCost;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
