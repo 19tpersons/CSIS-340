@@ -1,4 +1,4 @@
-package deckpackage;
+package deckpackage.model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

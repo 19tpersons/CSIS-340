@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteFormController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.controller.QuoteFormController">
     <stylesheets>
         <URL value="@quotoform.css" />
     </stylesheets>
@@ -35,18 +35,18 @@
                         <Label layoutX="69.0" layoutY="128.0" text="Wood Type" />
                         <MenuButton fx:id="dropdownWoodType" layoutX="152.0" layoutY="124.0" mnemonicParsing="false" text="Types">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="Green Tree" />
-                              <MenuItem mnemonicParsing="false" text="Brown Tree" />
-                            <MenuItem mnemonicParsing="false" text="Maintenance Tree" />
-                              <MenuItem mnemonicParsing="false" text="Custom" />
+                            <MenuItem fx:id="greenTree" mnemonicParsing="false" onAction="#onSelected" text="Green Tree" />
+                              <MenuItem fx:id="brownTree" mnemonicParsing="false" onAction="#onSelected" text="Brown Tree" />
+                            <MenuItem fx:id="maintenanceTree" mnemonicParsing="false" onAction="#onSelected" text="Maintenance Tree" />
+                              <MenuItem fx:id="custom" mnemonicParsing="false" onAction="#onSelected" text="Custom" />
                           </items>
                         </MenuButton>
                         <Label layoutX="82.0" layoutY="158.0" text="Height" />
                         <TextField fx:id="textHeight" layoutX="152.0" layoutY="154.0" />
                         <Label layoutX="79.0" layoutY="188.0" text="Breadth" />
                         <TextField fx:id="textBreadth" layoutX="152.0" layoutY="184.0" />
-                        <TextField fx:id="textLength" layoutX="152.0" layoutY="218.0" />
-                        <Label layoutX="81.0" layoutY="226.0" text="Length" />
+                        <TextField fx:id="textLength" layoutX="152.0" layoutY="210.0" />
+                        <Label layoutX="81.0" layoutY="214.0" text="Length" />
                         <Button layoutX="464.0" layoutY="22.0" mnemonicParsing="false" onAction="#addMaterial" text="Add Material" />
                         <Label layoutX="379.0" layoutY="26.0" text="Add Material" />
                         <ScrollPane layoutX="379.0" layoutY="55.0" prefHeight="358.0" prefWidth="503.0">
@@ -79,8 +79,8 @@
                         <Button fx:id="LaborButton" layoutX="686.0" layoutY="23.0" mnemonicParsing="false" onAction="#addLabor" prefHeight="25.0" prefWidth="69.0" text="Labor" />
                         <Label layoutX="577.0" layoutY="27.0" prefHeight="17.0" prefWidth="90.0" text="Calculate Labor" />
                         <Button fx:id="submitButton" layoutX="73.0" layoutY="288.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
-                        <Label layoutX="71.0" layoutY="251.0" text="Labor Cost" />
-                        <TextField fx:id="textFieldLaborCost" editable="false" layoutX="152.0" layoutY="247.0" />
+                        <Label layoutX="71.0" layoutY="243.0" text="Labor Cost" />
+                        <TextField fx:id="textFieldLaborCost" editable="false" layoutX="152.0" layoutY="239.0" />
 
                      </children>
                   </AnchorPane>

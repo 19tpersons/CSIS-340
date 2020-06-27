@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package deckpackage;
+package deckpackage.controller;
 
 import java.beans.XMLDecoder;
 import java.io.*;
@@ -12,12 +12,13 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import deckpackage.model.Quote;
+import deckpackage.row.IndexRow;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 
@@ -37,7 +38,7 @@ public class QuoteIndexController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {        
-            Pane mainScene = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
+            Pane mainScene = FXMLLoader.load(getClass().getResource("../view/MainScene.fxml"));
             topMenuPane.getChildren().add(mainScene);
         } catch (IOException ex) {
             Logger.getLogger(QuoteFormController.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,7 +48,7 @@ public class QuoteIndexController implements Initializable {
     }
 
     public Parent getScene() throws IOException {
-        Parent quoteForm = FXMLLoader.load(getClass().getResource("QuotoForm.fxml"));
+        Parent quoteForm = FXMLLoader.load(getClass().getResource("../view/QuotoForm.fxml"));
         return quoteForm;
     }
 

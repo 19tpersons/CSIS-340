@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package deckpackage;
+package deckpackage.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,15 +32,15 @@ public class MainSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+
+    }
+
     public MainSceneController() {}
     
     @FXML
      private void showQuoteIndex() throws IOException {
         Scene scene = quoteIndexLink.getScene();
-        Parent quoteIndex = FXMLLoader.load(getClass().getResource("QuoteIndex.fxml"));
+        Parent quoteIndex = FXMLLoader.load(getClass().getResource("../view/QuoteIndex.fxml"));
         scene.setRoot(quoteIndex);
     }
    
@@ -48,7 +48,7 @@ public class MainSceneController implements Initializable {
     @FXML
     private void showQuoteForm(ActionEvent event) throws IOException {
         Scene scene = quoteLink.getScene();
-        Parent quoteForm = FXMLLoader.load(getClass().getResource("QuotoForm.fxml"));        
+        Parent quoteForm = FXMLLoader.load(getClass().getResource("../view/QuotoForm.fxml"));
         scene.setRoot(quoteForm);
     }
 }

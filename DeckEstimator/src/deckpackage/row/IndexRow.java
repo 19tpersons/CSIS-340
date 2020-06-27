@@ -1,4 +1,4 @@
-package deckpackage;
+package deckpackage.row;
 
 import javafx.beans.property.SimpleStringProperty;
 

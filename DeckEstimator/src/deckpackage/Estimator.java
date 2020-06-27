@@ -1,5 +1,6 @@
 package deckpackage;
 
+import deckpackage.controller.MainSceneController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,7 @@ public class Estimator extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent quoteIndex = FXMLLoader.load(getClass().getResource("QuoteIndex.fxml")); 
+        Parent quoteIndex = FXMLLoader.load(getClass().getResource("view/QuoteIndex.fxml"));
         Scene scene = new Scene(quoteIndex, 900, 500);
         root = new MainSceneController();
         

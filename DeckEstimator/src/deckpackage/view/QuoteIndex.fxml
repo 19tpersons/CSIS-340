@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteIndexController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.controller.QuoteIndexController">
    <children>
       <VBox prefHeight="500.0" prefWidth="900.0">
          <children>

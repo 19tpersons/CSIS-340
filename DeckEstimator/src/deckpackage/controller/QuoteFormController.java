@@ -1,4 +1,4 @@
-package deckpackage;
+package deckpackage.controller;
 
 import java.beans.XMLEncoder;
 import java.io.BufferedOutputStream;
@@ -6,8 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
+
+import deckpackage.modal.FormModal;
+import deckpackage.modal.LaborModal;
+import deckpackage.model.Quote;
+import deckpackage.row.TableRow;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,9 +21,8 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
@@ -47,7 +50,7 @@ public class QuoteFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {        
-            Pane mainScene = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
+            Pane mainScene = FXMLLoader.load(getClass().getResource("../view/MainScene.fxml"));
             topMenuPane.getChildren().add(mainScene);
         } catch (IOException ex) {
             Logger.getLogger(QuoteFormController.class.getName()).log(Level.SEVERE, null, ex);
@@ -55,7 +58,7 @@ public class QuoteFormController implements Initializable {
     }
     
     public Parent getScene() throws IOException {
-        Parent quoteForm = FXMLLoader.load(getClass().getResource("QuotoForm.fxml"));        
+        Parent quoteForm = FXMLLoader.load(getClass().getResource("../view/QuotoForm.fxml"));
         return quoteForm;
     }
 
@@ -112,6 +115,11 @@ public class QuoteFormController implements Initializable {
     	LaborModal modal = new LaborModal();
     	HashMap<String, String> values = modal.display();
     	textFieldLaborCost.setText(values.get("laborCost"));
+    }
+
+    @FXML
+    private void onSelected(ActionEvent event) {
+        dropdownWoodType.setText(((MenuItem) event.getSource()).getText());
     }
     
 }

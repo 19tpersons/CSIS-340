@@ -1,4 +1,4 @@
-package deckpackage;
+package deckpackage.modal;
 
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
@@ -12,35 +12,33 @@ import java.util.HashMap;
 
 /**
  *
- * @author 19tpe
+ * @author Rachel
  */
-public class FormModal {
+public class LaborModal {
     private HashMap<String, String> values = new HashMap<String, String>();
     
     public HashMap<String, String> display() {
         Stage window = new Stage();
         
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Add a material.");
+        window.setTitle("Calculate Labor.");
         window.setMinWidth(250);
         VBox layout = new VBox(10);
 
-        FormRow name = new FormRow("Name:");
-        FormRow unit = new FormRow("Unit:");
-        FormRow pricePerUnit = new FormRow("Price Per Unit: ");
-        FormRow quantity = new FormRow("Quantity");
+        FormRow workers = new FormRow("# of Workers:");
+        FormRow hours = new FormRow("Hours worked:");
+        FormRow pricePerHour = new FormRow("Price Per hour: ");
+        
         
         Button submit = new Button("Create");
         submit.setOnAction(e -> {
-            values.put("name", name.getValue());
-            values.put("unit", unit.getValue());
-            values.put("pricePerUnit", pricePerUnit.getValue());
-            values.put("quantity", quantity.getValue());
-            
+            values.put("laborCost", "$" + String.format("%.2f", Integer.parseInt(workers.getValue())
+            		* Double.parseDouble(hours.getValue()) 
+            		* Double.parseDouble(pricePerHour.getValue())));
             window.close();
         });
         
-        layout.getChildren().addAll(name, unit, pricePerUnit, quantity, submit);
+        layout.getChildren().addAll(workers, hours, pricePerHour, submit);
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
@@ -51,7 +49,7 @@ public class FormModal {
     class FormRow extends HBox {
         private Label name;
         private TextField textField;
-
+        
         public FormRow(String text) {
             name = new Label(text);
             textField = new TextField();
