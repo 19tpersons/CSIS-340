@@ -39,13 +39,7 @@ public class QuoteFormController implements Initializable {
     @FXML private TextField textLength;
     @FXML private MenuButton dropdownWoodType;
     @FXML public TextField textFieldLaborCost;
-
-    @FXML
-    private Button LaborButton;
-    @FXML
-    private Button submitButton;
-    @FXML
-    private Pane topMenuPane;
+    @FXML private Pane topMenuPane;
 
     /**
      * Initializes the controller class.
@@ -58,15 +52,13 @@ public class QuoteFormController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(QuoteFormController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
     
     public Parent getScene() throws IOException {
         Parent quoteForm = FXMLLoader.load(getClass().getResource("QuotoForm.fxml"));        
         return quoteForm;
     }
-    
-    
+
     @FXML
     private void addMaterial(ActionEvent event) {
         FormModal modal = new FormModal();
@@ -106,12 +98,11 @@ public class QuoteFormController implements Initializable {
         );
 
         XMLEncoder encoder; // q has to be a bean class
-        try{
-            Date date = new Date();
-            encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(String.valueOf(date.getTime()) + ".xml")));
+        try {
+            encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("quotes/" + q.getDate() + ".xml")));
             encoder.writeObject(q);
             encoder.close();
-        }catch(FileNotFoundException fileNotFound){
+        } catch(FileNotFoundException fileNotFound) {
             System.err.println("Error writing to file");
         }
     }

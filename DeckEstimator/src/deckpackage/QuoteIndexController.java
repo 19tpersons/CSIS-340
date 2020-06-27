@@ -5,11 +5,14 @@
  */
 package deckpackage;
 
-import java.io.IOException;
+import java.beans.XMLDecoder;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,9 +28,8 @@ import javafx.scene.layout.Pane;
  */
 public class QuoteIndexController implements Initializable {    
 
-    @FXML
-    private Pane topMenuPane;
-    private TableView quoteTableView;
+    @FXML private Pane topMenuPane;
+    @FXML private TableView<IndexRow> quoteTableView;
 
     /**
      * Initializes the controller class.
@@ -40,11 +42,45 @@ public class QuoteIndexController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(QuoteFormController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        readQuotes();
     }
 
     public Parent getScene() throws IOException {
-        Parent quoteForm = FXMLLoader.load(getClass().getResource("QuotoForm.fxml"));        
+        Parent quoteForm = FXMLLoader.load(getClass().getResource("QuotoForm.fxml"));
         return quoteForm;
+    }
+
+    public void readQuotes() {
+        XMLDecoder decoder;
+        Quote quote;
+
+        ObservableList<IndexRow> data = quoteTableView.getItems();
+
+        try {
+            File folder = new File("quotes/");
+            File[] listOfFiles = folder.listFiles();
+
+            if(listOfFiles.length > 0) {
+                for (File file : listOfFiles) {
+                    if (file.isFile()) {
+                        decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(file)));
+                        quote = (Quote) decoder.readObject();
+
+                        data.add(new IndexRow(
+                                quote.getName(),
+                                quote.getReadableDate(),
+                                quote.getStatus()
+                        ));
+                    }
+                }
+            } else {
+                System.out.println("Nothing to read");
+            }
+        } catch(Exception e) {
+            System.err.println("There was a problem reading the files.");
+            e.printStackTrace();
+        }
     }
     
 }

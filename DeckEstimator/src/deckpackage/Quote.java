@@ -1,5 +1,7 @@
 package deckpackage;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -95,6 +97,13 @@ public class Quote {
 
     public String getDate() {
         return this.date;
+    }
+
+    public String getReadableDate() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        date.setTime(Long.parseLong(this.date));
+        return dateFormat.format(date);
     }
 
     public void setName(String name) {

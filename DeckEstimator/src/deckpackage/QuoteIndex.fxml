@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteIndexController">
    <children>
       <VBox prefHeight="500.0" prefWidth="900.0">
@@ -16,9 +17,15 @@
                <content>
                   <TableView fx:id="quoteTableView" prefHeight="418.0" prefWidth="900.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Customer " />
-                      <TableColumn prefWidth="75.0" text="Date" />
-                        <TableColumn prefWidth="75.0" text="Status " />
+                      <TableColumn prefWidth="150.0" text="Customer ">
+                        <cellValueFactory><PropertyValueFactory property="quoteName" /></cellValueFactory>
+                      </TableColumn>
+                        <TableColumn prefWidth="150.0" text="Date">
+                        <cellValueFactory><PropertyValueFactory property="quoteDate" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="Status ">
+                        <cellValueFactory><PropertyValueFactory property="quoteStatus" /></cellValueFactory>
+                        </TableColumn>
                     </columns>
                   </TableView>
                </content></ScrollPane>
