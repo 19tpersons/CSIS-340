@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteIndexController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="deckpackage.QuoteIndexController">
    <children>
       <VBox prefHeight="500.0" prefWidth="900.0">
          <children>
             <Pane fx:id="topMenuPane" prefHeight="79.0" prefWidth="900.0" />
-            <ScrollPane prefHeight="421.0" prefWidth="900.0" />
+            <ScrollPane prefHeight="421.0" prefWidth="900.0">
+               <content>
+                  <TableView prefHeight="418.0" prefWidth="900.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Customer " />
+                      <TableColumn prefWidth="75.0" text="Date" />
+                        <TableColumn prefWidth="75.0" text="Status " />
+                    </columns>
+                  </TableView>
+               </content></ScrollPane>
          </children>
       </VBox>
    </children>

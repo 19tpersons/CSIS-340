@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="14" class="java.beans.XMLDecoder">
+ <object class="deckpackage.Quote">
+  <void property="breadth">
+   <double>10.0</double>
+  </void>
+  <void property="email">
+   <string>dsjfskl@gmail.com</string>
+  </void>
+  <void property="height">
+   <double>10.0</double>
+  </void>
+  <void property="laborCost">
+   <double>960.0</double>
+  </void>
+  <void property="matList">
+   <string>nail boxes 2 5,</string>
+  </void>
+  <void property="name">
+   <string>Rachel</string>
+  </void>
+  <void property="phone">
+   <string>7205857930</string>
+  </void>
+  <void property="woodType">
+   <string>Types</string>
+  </void>
+ </object>
+</java>

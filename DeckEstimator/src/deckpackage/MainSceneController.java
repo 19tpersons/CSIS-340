@@ -40,7 +40,7 @@ public class MainSceneController implements Initializable {
     @FXML
      private void showQuoteIndex() throws IOException {
         Scene scene = quoteIndexLink.getScene();
-        Parent quoteIndex = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
+        Parent quoteIndex = FXMLLoader.load(getClass().getResource("QuoteIndex.fxml"));
         scene.setRoot(quoteIndex);
     }
    
