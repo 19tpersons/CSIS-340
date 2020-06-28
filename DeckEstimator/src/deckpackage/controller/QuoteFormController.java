@@ -1,5 +1,6 @@
 package deckpackage.controller;
 
+import java.awt.Button;
 import java.beans.XMLEncoder;
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
@@ -10,6 +11,7 @@ import java.util.ResourceBundle;
 
 import deckpackage.modal.FormModal;
 import deckpackage.modal.LaborModal;
+import deckpackage.modal.PrintModal;
 import deckpackage.model.Quote;
 import deckpackage.row.TableRow;
 import javafx.event.ActionEvent;
@@ -21,11 +23,13 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -43,7 +47,7 @@ public class QuoteFormController implements Initializable {
     @FXML private MenuButton dropdownWoodType;
     @FXML public TextField textFieldLaborCost;
     @FXML private Pane topMenuPane;
-
+  
     /**
      * Initializes the controller class.
      */
@@ -122,4 +126,29 @@ public class QuoteFormController implements Initializable {
         dropdownWoodType.setText(((MenuItem) event.getSource()).getText());
     }
     
+
+    //This code below is where I tried to create a new window so we have a receipt page
+    //but it will work load the page if anyone can fix it
+    
+@FXML
+void PrintOption(ActionEvent event) {
+	try {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CostOuput.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("CostOuput");
+        stage.setScene(new Scene(root1));  
+        stage.show();
+    } catch(Exception e) {
+        System.out.println("Can't Load Receipt");
+    }
+
 }
+
+
+}
+
+
+    
+
+

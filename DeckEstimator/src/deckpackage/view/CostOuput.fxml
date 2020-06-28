@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="433.0" prefWidth="458.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Pane layoutX="-56.0" layoutY="-165.0" prefHeight="466.0" prefWidth="448.0">
+         <children>
+            <Label layoutX="81.0" layoutY="189.0" prefHeight="23.0" prefWidth="116.0" text="Total Cost: " />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
