@@ -9,6 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
 import java.util.HashMap;
+import javafx.geometry.Insets;
 
 /**
  *
@@ -25,7 +26,7 @@ public class LaborModal {
         window.setMinWidth(250);
         VBox layout = new VBox(10);
 
-        FormRow workers = new FormRow("# of Workers:");
+        FormRow workers = new FormRow("Number of Workers:");
         FormRow hours = new FormRow("Hours worked:");
         FormRow pricePerHour = new FormRow("Price Per hour: ");
         
@@ -39,6 +40,8 @@ public class LaborModal {
         });
         
         layout.getChildren().addAll(workers, hours, pricePerHour, submit);
+        layout.setPadding(new Insets(10,10,10,10));
+
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();

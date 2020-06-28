@@ -9,6 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
 import java.util.HashMap;
+import javafx.geometry.Insets;
 
 /**
  *
@@ -25,11 +26,12 @@ public class FormModal {
         window.setMinWidth(250);
         VBox layout = new VBox(10);
 
-        FormRow name = new FormRow("Name:");
-        FormRow unit = new FormRow("Unit:");
+    
+        FormRow name = new FormRow("Name: ");
         FormRow pricePerUnit = new FormRow("Price Per Unit: ");
-        FormRow quantity = new FormRow("Quantity");
-        
+        FormRow quantity = new FormRow("Quantity: ");
+        FormRow unit = new FormRow("Sold as (e.g. box): ");
+
         Button submit = new Button("Create");
         submit.setOnAction(e -> {
             values.put("name", name.getValue());
@@ -40,7 +42,9 @@ public class FormModal {
             window.close();
         });
         
-        layout.getChildren().addAll(name, unit, pricePerUnit, quantity, submit);
+        layout.getChildren().addAll(name, pricePerUnit, quantity, unit, submit);
+        layout.setPadding(new Insets(10,10,10,10));
+        
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
