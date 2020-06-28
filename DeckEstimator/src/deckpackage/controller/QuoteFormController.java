@@ -115,7 +115,7 @@ public class QuoteFormController implements Initializable {
     }
 
     @FXML
-    private void addLabor (ActionEvent event) {
+    private void addLabor(ActionEvent event) {
     	LaborModal modal = new LaborModal();
     	HashMap<String, String> values = modal.display();
     	textFieldLaborCost.setText(values.get("laborCost"));
@@ -131,21 +131,20 @@ public class QuoteFormController implements Initializable {
     //but it will work load the page if anyone can fix it
     
 @FXML
-void PrintOption(ActionEvent event) {
-	try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CostOuput.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("CostOuput");
-        stage.setScene(new Scene(root1));  
-        stage.show();
-    } catch(Exception e) {
-        System.out.println("Can't Load Receipt");
-    }
-
-}
-
-
+	void PrintOption(ActionEvent event) {
+		try {
+	        /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CostOuput.fxml"));
+	        Parent root1 = (Parent) fxmlLoader.load();
+	        Stage stage = new Stage();
+	        stage.setTitle("Receipt");
+	        stage.setScene(new Scene(root1));  
+	        stage.show();*/
+			PrintModal modal = new PrintModal();
+			modal.showReceipt();
+	    } catch(Exception e) {
+	        System.out.println("Can't Load Receipt");
+	    }
+	}
 }
 
 
