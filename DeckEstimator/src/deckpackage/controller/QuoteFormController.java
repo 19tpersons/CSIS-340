@@ -82,16 +82,7 @@ public class QuoteFormController implements Initializable {
 
     @FXML
     private void submit(ActionEvent event) {
-    	String matString = "";
-    	for (int i = 0; i < materialMenu.getItems().size(); i++) {
-    		TableRow tableRow = materialMenu.getItems().get(i);
-    		matString = matString + tableRow.getMaterialName() 
-    		+ " " + tableRow.getMaterialUnit() 
-    		+ " " + tableRow.getMaterialPPU() 
-    		+ " " + tableRow.getMaterialQuantity()
-    		+ ",";
-    	}
-
+    	String matString = createMatString();
         Quote q = new Quote(
                 textName.getText(),
                 textPhone.getText(),
@@ -127,8 +118,23 @@ public class QuoteFormController implements Initializable {
     }    
     
     @FXML
+    String createMatString() {
+    	String matString = "";
+    	for (int i = 0; i < materialMenu.getItems().size(); i++) {
+    		TableRow tableRow = materialMenu.getItems().get(i);
+    		matString = matString + tableRow.getMaterialName() 
+    		+ " " + tableRow.getMaterialUnit() 
+    		+ " " + tableRow.getMaterialPPU() 
+    		+ " " + tableRow.getMaterialQuantity()
+    		+ ",";
+    	}
+    	return matString;
+    }
+    
+    @FXML
 	void PrintOption(ActionEvent event) {
     	String laborCost;
+    	String matString = createMatString();
 		try {
 			if (textFieldLaborCost.getText().length() == 0) laborCost = "0";
 			else laborCost = textFieldLaborCost.getText().substring(1);
@@ -137,11 +143,11 @@ public class QuoteFormController implements Initializable {
 	                Double.parseDouble(textHeight.getText()),
 	                Double.parseDouble(textBreadth.getText()),
 	                Double.parseDouble(textLength.getText()),
-	                //matString,
+	                matString,
 	                Double.parseDouble(laborCost));
 	    } catch(Exception e) {
 	    	e.printStackTrace();
-	        System.out.println("Can't Load Receipt");
+	        System.out.println("Can't Load Receipt"); //change to popup
 	    }
 	}
 }

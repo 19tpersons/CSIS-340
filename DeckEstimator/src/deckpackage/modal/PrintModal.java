@@ -1,6 +1,7 @@
 package deckpackage.modal;
 
 
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,13 +23,12 @@ public class PrintModal {
 			double height,
             double breadth,
             double length,
-            //matString,
+            String matString,
             double laborCost) {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Receipt");
 		window.setMinWidth(250);
-		window.setMinHeight(35 * numberOfForms);
 		VBox layout = new VBox(10);
 		FormRow materials = new FormRow("Extra Materials");
 		FormRow wood = new FormRow("Wood");
@@ -41,14 +41,30 @@ public class PrintModal {
 				"Dimensions " + height + "x" + breadth + "x" + length,
 				laborCost);
 		FormRowDetailed subtotal = new FormRowDetailed("Subtotal", laborCost);
-		
-		//fix this!!
-		//FormRowDetailed mat = new FormRowDetailed("material name", laborCost);
+		/**************************here***************************/
 		FormRowDetailed labor = new FormRowDetailed("Labor", laborCost);
-		layout.getChildren().addAll(wood, type, amountOfWood, subtotal, materials, /*mat, */labor, close);
+		layout.getChildren().addAll(wood, type, amountOfWood, subtotal, materials);
+		if (matString != "") {
+			String[] bigMatList = matString.split(",");
+			for (int i = 0; i < bigMatList.length; i++) {
+				String[] smallMatList = bigMatList[i].split(" ");
+				String matName = smallMatList[0];
+				double matCost = Double.parseDouble(smallMatList[2]) * Double.parseDouble(smallMatList[3]);
+				FormRowDetailed matRow = new FormRowDetailed(matName, matCost);
+				layout.getChildren().add(matRow);
+				numberOfForms++;
+			}
+		}
+		window.setMinHeight(35 * numberOfForms);
+		layout.getChildren().addAll(labor, close);
 		Scene scene = new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
+	}
+	
+	FormRowDetailed createMatRows() {
+		FormRowDetailed row = new FormRowDetailed("material name", 7.0);
+		return row;
 	}
 	
 	class FormRow extends HBox {
