@@ -128,10 +128,19 @@ public class QuoteFormController implements Initializable {
     
     @FXML
 	void PrintOption(ActionEvent event) {
+    	String laborCost;
 		try {
+			if (textFieldLaborCost.getText().length() == 0) laborCost = "0";
+			else laborCost = textFieldLaborCost.getText().substring(1);
 			PrintModal modal = new PrintModal();
-			modal.showReceipt();
+			modal.showReceipt(dropdownWoodType.getText(),
+	                Double.parseDouble(textHeight.getText()),
+	                Double.parseDouble(textBreadth.getText()),
+	                Double.parseDouble(textLength.getText()),
+	                //matString,
+	                Double.parseDouble(laborCost));
 	    } catch(Exception e) {
+	    	e.printStackTrace();
 	        System.out.println("Can't Load Receipt");
 	    }
 	}
