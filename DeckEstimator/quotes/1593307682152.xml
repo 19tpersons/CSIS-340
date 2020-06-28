@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="14.0.1" class="java.beans.XMLDecoder">
+ <object class="deckpackage.model.Quote">
+  <void property="breadth">
+   <double>10.0</double>
+  </void>
+  <void property="date">
+   <string>1593307682152</string>
+  </void>
+  <void property="email">
+   <string>bob@example.com</string>
+  </void>
+  <void property="height">
+   <double>6.0</double>
+  </void>
+  <void property="laborCost">
+   <double>2100.0</double>
+  </void>
+  <void property="matList">
+   <string>2 x 4 - 10 Foot each  2,2 x 8 - 100 Foot each  12,5/4 x 6 - 10 Foot Decking Board each  24,2 x 4 - 8 Foot each  6,5/4 x 6 - 8 Foot Decking Board each  6,80 lb Concrete Mix each  5,2 x 12 - 8 Foot each  1,2 x 12 - 10 Foot each  1,4 x 4 - 8 Foot each  9,4 x 4 - 10 Foot each  1,2&quot; x 2&quot; - 42&quot; Baluster Beveled One End each  62,3-1/2&quot; Steel Box Nail (1lb Pack) boxes  3,Stair Stringer each  4,</string>
+  </void>
+  <void property="name">
+   <string>Bob</string>
+  </void>
+  <void property="phone">
+   <string>O`Connor</string>
+  </void>
+  <void property="status">
+   <string>idk man</string>
+  </void>
+  <void property="woodType">
+   <string>Green Tree</string>
+  </void>
+ </object>
+</java>
