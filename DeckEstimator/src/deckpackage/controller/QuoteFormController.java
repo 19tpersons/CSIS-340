@@ -88,16 +88,56 @@ public class QuoteFormController implements Initializable {
     		+ ",";
     	}
 
+        String name = "";
+        if (textName.getText().length() > 0) {
+            name = textName.getText();
+        }
+        
+        String phone = "";
+        if (textPhone.getText().length() > 0) {
+            phone = textPhone.getText();
+        }
+        
+        String email = "";
+        if (textEmail.getText().length() > 0) {
+            email = textEmail.getText();
+        }
+        
+        String woodType = "";
+        if (dropdownWoodType.getText().length() > 0) {
+            woodType = dropdownWoodType.getText();
+        }
+        
+        Double height = 0.0;
+        if (textHeight.getText().length() > 0) {
+            height = Double.parseDouble(textHeight.getText());
+        }
+        
+        Double breadth = 0.0;
+        if (textBreadth.getText().length() > 0) {
+            breadth = Double.parseDouble(textBreadth.getText());
+        }
+        
+        Double length = 0.0;
+        if (textLength.getText().length() > 0) {
+            length = Double.parseDouble(textLength.getText());
+        }
+        
+        Double laborCost = 0.0;
+        if (textFieldLaborCost.getText().length() > 0) {
+            laborCost = Double.parseDouble(textFieldLaborCost.getText().substring(1));
+        }
+        
         Quote q = new Quote(
-                textName.getText(),
-                textPhone.getText(),
-                textEmail.getText(),
-                dropdownWoodType.getText(),
-                Double.parseDouble(textHeight.getText()),
-                Double.parseDouble(textBreadth.getText()),
-                Double.parseDouble(textLength.getText()),
+                name,
+                phone,
+                email,
+                woodType,
+                height,
+                breadth,
+                length,
                 matString,
-                Double.parseDouble(textFieldLaborCost.getText().substring(1))
+                laborCost
         );
 
         XMLEncoder encoder; // q has to be a bean class
