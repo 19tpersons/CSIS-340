@@ -86,7 +86,7 @@
                         <Button fx:id="submitButton" layoutX="73.0" layoutY="288.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
                         <Label layoutX="71.0" layoutY="243.0" text="Labor Cost" />
                         <TextField fx:id="textFieldLaborCost" editable="false" layoutX="152.0" layoutY="239.0" />
-                        <Button layoutX="201.0" layoutY="288.0" mnemonicParsing="false" onAction="#PrintOption" prefHeight="25.0" prefWidth="72.0" text="Print" />
+                        <Button layoutX="201.0" layoutY="288.0" mnemonicParsing="false" onAction="#PrintOption" prefHeight="25.0" prefWidth="90.0" text="Print Receipt" />
 
                      </children>
                   </AnchorPane>
