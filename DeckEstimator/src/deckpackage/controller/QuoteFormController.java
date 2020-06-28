@@ -124,21 +124,11 @@ public class QuoteFormController implements Initializable {
     @FXML
     private void onSelected(ActionEvent event) {
         dropdownWoodType.setText(((MenuItem) event.getSource()).getText());
-    }
+    }    
     
-
-    //This code below is where I tried to create a new window so we have a receipt page
-    //but it will work load the page if anyone can fix it
-    
-@FXML
+    @FXML
 	void PrintOption(ActionEvent event) {
 		try {
-	        /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CostOuput.fxml"));
-	        Parent root1 = (Parent) fxmlLoader.load();
-	        Stage stage = new Stage();
-	        stage.setTitle("Receipt");
-	        stage.setScene(new Scene(root1));  
-	        stage.show();*/
 			PrintModal modal = new PrintModal();
 			modal.showReceipt();
 	    } catch(Exception e) {

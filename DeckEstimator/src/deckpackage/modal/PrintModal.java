@@ -22,17 +22,18 @@ public class PrintModal {
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Receipt");
 		window.setMinWidth(250);
+		window.setMinHeight(250);
 		VBox layout = new VBox(10);
 		FormRow customerInfo = new FormRow("Contact Information");
 		FormRow woodType = new FormRow("Wood Type");
-		layout.getChildren().addAll(customerInfo, woodType);
-		Scene scene = new Scene(layout);
-		window.setScene(scene);
-		window.showAndWait();
 		Button close = new Button("Exit");
 		close.setOnAction(e -> {
 			window.close();
 		});
+		layout.getChildren().addAll(customerInfo, woodType, close);
+		Scene scene = new Scene(layout);
+		window.setScene(scene);
+		window.showAndWait();
 	}
 	
 	class FormRow extends HBox {
@@ -41,10 +42,6 @@ public class PrintModal {
 		public FormRow(String text) {
 			name = new Label(text);
 			this.getChildren().addAll(name);
-		}
-		
-		public String getValue() {
-			return "";
 		}
 	}
 }
