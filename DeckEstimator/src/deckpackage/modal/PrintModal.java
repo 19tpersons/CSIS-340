@@ -2,6 +2,7 @@ package deckpackage.modal;
 
 
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -33,6 +34,7 @@ public class PrintModal {
 		FormRow materials = new FormRow("Extra Materials");
 		FormRow wood = new FormRow("Wood");
 		Button close = new Button("Exit");
+		close.setPadding(new Insets(10, 10, 10, 10)); //fix this
 		close.setOnAction(e -> {
 			window.close();
 		});

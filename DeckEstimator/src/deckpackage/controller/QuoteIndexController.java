@@ -59,7 +59,7 @@ public class QuoteIndexController implements Initializable {
         ObservableList<IndexRow> data = quoteTableView.getItems();
 
         try {
-            File folder = new File("quotes/");
+            File folder = new File("quotes");
             File[] listOfFiles = folder.listFiles();
 
             if(listOfFiles.length > 0) {
