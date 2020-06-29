@@ -57,7 +57,7 @@ public class IndexRow {
     }
 
     public void setQuoteStatus(String status) {
-        this.quoteStatus.set(status);
+        this.quoteStatus.set("Pending");
     }
     
     public void setApptButton(String name) {
