@@ -53,7 +53,7 @@
                           <content>
                             <AnchorPane prefHeight="353.0" prefWidth="500.0">
                                  <children>
-                                    <TableView fx:id="materialMenu" editable="true" prefHeight="253.33333333333334" prefWidth="249.33333333333334" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="materialMenu" editable="true" prefHeight="253.33333333333334" prefWidth="249.33333333333334" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
                                         <TableColumn prefWidth="75.0" text="Name">
                                             <cellValueFactory><PropertyValueFactory property="materialName" /></cellValueFactory>
@@ -80,7 +80,7 @@
                         <Label layoutX="577.0" layoutY="27.0" prefHeight="17.0" prefWidth="90.0" text="Calculate Labor" />
                         <Button fx:id="submitButton" layoutX="73.0" layoutY="288.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
                         <Label layoutX="71.0" layoutY="243.0" text="Labor Cost" />
-                        <TextField fx:id="textFieldLaborCost" editable="false" layoutX="152.0" layoutY="239.0" />
+                        <TextField fx:id="textFieldLaborCost" layoutX="152.0" layoutY="239.0" />
 
                      </children>
                   </AnchorPane>

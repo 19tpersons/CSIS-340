@@ -5,6 +5,7 @@
  */
 package deckpackage.controller;
 
+import deckpackage.modal.AppointmentModal;
 import java.beans.XMLDecoder;
 import java.io.*;
 import java.net.URL;
@@ -14,7 +15,9 @@ import java.util.logging.Logger;
 
 import deckpackage.model.Quote;
 import deckpackage.row.IndexRow;
+import java.util.HashMap;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -83,5 +86,4 @@ public class QuoteIndexController implements Initializable {
             e.printStackTrace();
         }
     }
-    
 }

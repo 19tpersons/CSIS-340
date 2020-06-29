@@ -26,6 +26,8 @@ public class MainSceneController implements Initializable {
     private Button quoteLink;
     @FXML
     private Button quoteIndexLink;
+    @FXML
+    private Button appointmentIndexLink;
     
     /**
      * Initializes the controller class.
@@ -50,5 +52,13 @@ public class MainSceneController implements Initializable {
         Scene scene = quoteLink.getScene();
         Parent quoteForm = FXMLLoader.load(getClass().getResource("../view/QuotoForm.fxml"));
         scene.setRoot(quoteForm);
+    }
+    
+    @FXML
+    private void showAppointmentIndex(ActionEvent event) throws IOException {
+        Scene scene = appointmentIndexLink.getScene();
+        System.out.println("here");
+        Parent apptIndex = FXMLLoader.load(getClass().getResource("../view/AppointmentIndex.fxml"));
+        scene.setRoot(apptIndex);
     }
 }
