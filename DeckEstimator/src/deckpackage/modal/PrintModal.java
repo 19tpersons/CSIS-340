@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  */
 
 public class PrintModal {
-	private int numberOfForms = 7;
+	private int numberOfForms = 8;
 	
 	public void showReceipt(String woodType,
 			double height,
@@ -40,10 +40,10 @@ public class PrintModal {
 		FormRowDetailed amountOfWood = new FormRowDetailed(
 				"Dimensions " + height + "x" + breadth + "x" + length,
 				laborCost);
-		FormRowDetailed subtotal = new FormRowDetailed("Subtotal", laborCost);
-		/**************************here***************************/
+		FormRowDetailed subtotalWood = new FormRowDetailed("Subtotal", laborCost);
 		FormRowDetailed labor = new FormRowDetailed("Labor", laborCost);
-		layout.getChildren().addAll(wood, type, amountOfWood, subtotal, materials);
+		layout.getChildren().addAll(wood, type, amountOfWood, subtotalWood, materials);
+		double matTotCost = 0.0;
 		if (matString != "") {
 			String[] bigMatList = matString.split(",");
 			for (int i = 0; i < bigMatList.length; i++) {
@@ -52,19 +52,21 @@ public class PrintModal {
 				double matCost = Double.parseDouble(smallMatList[2]) * Double.parseDouble(smallMatList[3]);
 				FormRowDetailed matRow = new FormRowDetailed(matName, matCost);
 				layout.getChildren().add(matRow);
+				matTotCost += matCost;
 				numberOfForms++;
 			}
 		}
+		else {
+			FormRowDetailed matRow = new FormRowDetailed("No materials added", 0);
+			layout.getChildren().add(matRow);
+			numberOfForms++;
+		}
+		FormRowDetailed subtotalMats = new FormRowDetailed("Subtotal", matTotCost);
 		window.setMinHeight(35 * numberOfForms);
-		layout.getChildren().addAll(labor, close);
+		layout.getChildren().addAll(subtotalMats, labor, close);
 		Scene scene = new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
-	}
-	
-	FormRowDetailed createMatRows() {
-		FormRowDetailed row = new FormRowDetailed("material name", 7.0);
-		return row;
 	}
 	
 	class FormRow extends HBox {
@@ -80,8 +82,15 @@ public class PrintModal {
 		private Label itemName;
 		
 		public FormRowDetailed(String text, double cost) {
-			if (text != "Labor") itemName = new Label("	" + text + " ..... " + cost);
-			else itemName = new Label(" " + text + " ..... " + cost);
+			String costStr = "$" + String.format("%.2f", cost);
+			int rowLength = 150 - text.length();
+			System.out.println(rowLength);
+			String ellipses = "";
+			for (int i = 0; i < rowLength; i++) {
+				ellipses += ".";
+			}
+			if (text != "Labor") itemName = new Label("    " + text + " " + ellipses + " " + costStr);
+			else itemName = new Label(" " + text + " " + ellipses + " " + costStr);
 			this.getChildren().addAll(itemName);
 		}
 	}
