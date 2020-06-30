@@ -23,11 +23,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 /**
  * FXML Controller class
  *
@@ -97,15 +100,22 @@ public class AppointmentController implements Initializable {
                     String date = apptKeys.get(i);
                     ArrayList<Appointment> dayAppts = appts.get(date);
                     VBox container = new VBox(5);
-                    container.getChildren().add(new Label(date));
+                    Label dateTitle = new Label(date);
+                    dateTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+                    dateTitle.setPadding(new Insets(10,10,10,10));
+                    container.getChildren().add(dateTitle);
                     
                     for (int j = 0; j < dayAppts.size(); j++) {
                         HBox row = new HBox(5);
                         Appointment tempAppt = dayAppts.get(j);
                         
                         Label customer = new Label(tempAppt.getCustomer());
+                        customer.setFont(Font.font("Serif", 20));
+                        customer.setPadding(new Insets(0, 0, 10, 10));
                         Label tempDate = new Label(tempAppt.getDate());
+                        tempDate.setFont(Font.font("Serif", 20));
                         Label purpose = new Label(tempAppt.getPurpose());
+                        purpose.setFont(Font.font("Serif", 20));
                         
                         row.getChildren().addAll(customer, tempDate, purpose);
                         container.getChildren().add(row);

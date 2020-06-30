@@ -29,6 +29,8 @@ public class IndexRow {
         
         apptButton.setOnAction(e -> {
             AppointmentModal apptModal = new AppointmentModal();
+            apptModal.setDate(date);
+            apptModal.setCustomer(name);
             HashMap<String, String> values = apptModal.display();
             
             Appointment q = new Appointment(
@@ -39,7 +41,7 @@ public class IndexRow {
 
             XMLEncoder encoder; // q has to be a bean class
             try {
-                encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("appointments/" + q.getDate() + ".xml")));
+                encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("appointments/" + q.getCreatedAt() + ".xml")));
                 encoder.writeObject(q);
                 encoder.close();
             } catch(FileNotFoundException fileNotFound) {

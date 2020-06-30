@@ -18,6 +18,10 @@ import javafx.geometry.Insets;
 public class AppointmentModal {
     private HashMap<String, String> values = new HashMap<String, String>();
     
+    private FormRow date = new FormRow("Date: ");
+    private FormRow customer = new FormRow("Customer: ");
+    private FormRow purpose = new FormRow("Purpose: ");
+    
     public HashMap<String, String> display() {
         Stage window = new Stage();
         
@@ -25,11 +29,6 @@ public class AppointmentModal {
         window.setTitle("New Material");
         window.setMinWidth(250);
         VBox layout = new VBox(10);
-
-    
-        FormRow customer = new FormRow("Customer: ");
-        FormRow date = new FormRow("Date: ");
-        FormRow purpose = new FormRow("Purpose: ");
 
         Button submit = new Button("Create");
         submit.setOnAction(e -> {
@@ -50,6 +49,17 @@ public class AppointmentModal {
         return values;
     }
     
+    public void setDate(String text) {
+        date.setText(text);
+    }
+    
+    public void setCustomer(String text) {
+        customer.setText(text);
+    }
+    
+    public void setPurpose(String text) {
+        purpose.setText(text);
+    }
     class FormRow extends HBox {
         private Label name;
         private TextField textField;
@@ -63,6 +73,10 @@ public class AppointmentModal {
         
         public String getValue() {
                 return textField.getText();
+        }
+        
+        public void setText(String text) {
+            textField.setText(text);
         }
     }
 }

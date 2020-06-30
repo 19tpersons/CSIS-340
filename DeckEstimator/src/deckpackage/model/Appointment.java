@@ -16,18 +16,26 @@ import java.util.Date;
 public class Appointment {
     private String customer;
     private String date;
-    private String purpose;    
+    private String purpose;   
+    private String createdAt;
     
     public Appointment() {
         this.customer = "";
         this.date = "";
         this.purpose = "";
+        
+        Date createdDate = new Date();
+        this.createdAt = String.valueOf(createdDate.getTime());
     }
     
     public Appointment(String customer, String date, String purpose) {
         this.customer = customer;
         this.date = date;
         this.purpose = purpose;
+        
+        Date createdDate = new Date();
+        this.createdAt = String.valueOf(createdDate.getTime());
+
     }
     
     public String getReadableDate() {
@@ -49,6 +57,10 @@ public class Appointment {
         return this.purpose;
     }
     
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+    
     public void setCustomer(String cust)  {
         this.customer = cust;
     }
@@ -59,6 +71,10 @@ public class Appointment {
     
     public void setPurpose(String purpose) {
         this.purpose = purpose;
+    }
+    
+    public void setCreatedAt(String date) {
+        this.createdAt = date;
     }
     
 }
