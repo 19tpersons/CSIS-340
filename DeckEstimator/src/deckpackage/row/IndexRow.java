@@ -6,8 +6,15 @@ import java.beans.XMLEncoder;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.util.HashMap;
+
+import javax.swing.JComboBox;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+
 import java.io.FileNotFoundException;
 
 
@@ -16,15 +23,18 @@ import java.io.FileNotFoundException;
  * @author Ethan Johnson
  */
 public class IndexRow {
+	public final static String[] items = {"Pending","In Progress", "Cancelled"};
     private final SimpleStringProperty quoteName   = new SimpleStringProperty("");
     private final SimpleStringProperty quoteDate   = new SimpleStringProperty("");
-    private final SimpleStringProperty quoteStatus = new SimpleStringProperty("");
+    private final ChoiceBox<String> quoteStatus = new ChoiceBox<String>();
+    
     private final Button apptButton = new Button();
-
-    public IndexRow(String name, String date, String status) {
+  
+    public IndexRow(String name, String date){
         setQuoteName(name);
         setQuoteDate(date);
-        setQuoteStatus(status);
+        setQuoteStatus(items);
+        
         setApptButton("Make Appt.");
         
         apptButton.setOnAction(e -> {
@@ -48,7 +58,18 @@ public class IndexRow {
         });
     }
 
-    public void setQuoteName(String name) {
+
+
+
+	private void setQuoteStatus(String[] items2) {
+		this.quoteStatus.getItems().addAll("Pending","In Progress", "Cancalled","Queue");
+		
+	}
+
+
+
+
+	public void setQuoteName(String name) {
         this.quoteName.set(name);
     }
 
@@ -56,9 +77,7 @@ public class IndexRow {
         this.quoteDate.set(date);
     }
 
-    public void setQuoteStatus(String status) {
-        this.quoteStatus.set("Pending");
-    }
+ 
     
     public void setApptButton(String name) {
         apptButton.setText(name);
@@ -72,8 +91,9 @@ public class IndexRow {
         return this.quoteDate.get();
     }
 
-    public String getQuoteStatus() {
-        return this.quoteStatus.get();
+    public ChoiceBox<String> getQuoteStatus() {
+        return quoteStatus;
+    	
     }
     
     public Button getApptButton() {

@@ -13,6 +13,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.JComboBox;
+
 import deckpackage.model.Quote;
 import deckpackage.row.IndexRow;
 import java.util.HashMap;
@@ -31,9 +33,10 @@ import javafx.scene.layout.Pane;
  * @author 19tpe
  */
 public class QuoteIndexController implements Initializable {    
-
+ 
     @FXML private Pane topMenuPane;
     @FXML private TableView<IndexRow> quoteTableView;
+    
 
     /**
      * Initializes the controller class.
@@ -73,10 +76,10 @@ public class QuoteIndexController implements Initializable {
 
                         data.add(new IndexRow(
                                 quote.getName(),
-                                quote.getReadableDate(),
-                                quote.getStatus()
-                        ));
-                    }
+                                quote.getReadableDate()
+                                ));
+                                                    
+                            }
                 }
             } else {
                 System.out.println("Nothing to read");
@@ -86,4 +89,6 @@ public class QuoteIndexController implements Initializable {
             e.printStackTrace();
         }
     }
+
+	
 }
