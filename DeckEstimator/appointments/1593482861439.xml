@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="14.0.1" class="java.beans.XMLDecoder">
+ <object class="deckpackage.model.Appointment">
+  <void property="createdAt">
+   <string>1593482861439</string>
+  </void>
+  <void property="customer">
+   <string>Bob O`Connor</string>
+  </void>
+  <void property="date">
+   <string>2020-06-27</string>
+  </void>
+  <void property="purpose">
+   <string>Finalize Paperwork</string>
+  </void>
+ </object>
+</java>
