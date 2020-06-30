@@ -4,11 +4,16 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.JComboBox;
+
+import deckpackage.row.IndexRow;
+
 /**
  *
  * @author Ethan
  */
 public class Quote {
+	String[] items = {"Pending","In Progress", "Cancelled"};
 
     private String name;
     private String phone;
@@ -34,7 +39,7 @@ public class Quote {
         this.matList = "";
         this.laborCost = 0;
 
-        this.status = "";
+        this.status = IndexRow.items[0];
         this.date = "";
     }
 
@@ -51,10 +56,10 @@ public class Quote {
 
         Date date = new Date();
 
-        this.status = "idk man"; // default status
+        this.status = IndexRow.items[0];
         this.date = String.valueOf(date.getTime());
     }
-
+ 
     public String getName() {
         return name;
     }
