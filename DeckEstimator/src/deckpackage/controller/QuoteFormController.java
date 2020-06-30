@@ -185,7 +185,6 @@ public class QuoteFormController implements Initializable {
 	                matString,
 	                Double.parseDouble(laborCost));
 	    } catch(Exception e) {
-	    	e.printStackTrace();
 	        System.out.println("Can't Load Receipt"); //change to popup
 	    }
 	}
